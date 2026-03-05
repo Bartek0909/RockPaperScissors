@@ -40,8 +40,57 @@
             return choice.toLowerCase();
         }
 
-        console.log(getHumanChoice());
-        console.log(getComputerChoice());
+        function playRound(humanChoice, computerChoice, humanScore, computerScore) {
+
+            console.log(`Player chooses: ${humanChoice}`);
+            console.log(`Computer chooses: ${computerChoice}`);
+
+            if (humanChoice === computerChoice) {
+                console.log("The round is a draw!");
+            }
+            else if ((humanChoice === 'rock') && (computerChoice === 'scissors') || (humanChoice === 'paper') && (computerChoice === 'rock') || (humanChoice === 'scissors') && (computerChoice === 'paper')) {
+                console.log("Human wins the round");
+                return "human"
+            }
+            else {
+                console.log("Computer wins the round");
+                return "computer";
+            }
+        }
+
+        function playGame() {
+
+            let humanScore = 0;
+            let computerScore = 0;
+
+            let roundsPlayed = 0;
+
+            while (roundsPlayed < 5) {
+                const humanChoice = getHumanChoice();
+                const computerChoice = getComputerChoice();
+
+                let roundWinner = playRound(humanChoice, computerChoice, humanScore, computerScore);
+                roundsPlayed++;
+
+                if (roundWinner === "human") {humanScore++;}
+                else if (roundWinner === "computer") {computerScore++;}
+
+                console.log(`Current score: Player ${humanScore}:${computerScore} Computer`); 
+            }
+
+            if (humanScore > computerScore) {
+                console.log("The winner is player!");
+            }
+            else if (computerScore > humanScore) {
+                console.log("The winner is computer!");
+            }
+            else {
+                console.log("The game ends in a draw")
+            }
+        }
+
+        playGame();
+        
     </script>
 </body>
 </html>
