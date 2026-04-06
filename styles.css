@@ -1,0 +1,16 @@
+body {
+    width: 800px;
+    margin: 200px auto 0px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+
+#buttons-div button {
+    margin: 0px 10px;
+}
+
+#buttons-div button input{
+    height: 50px;
+}
